@@ -1,0 +1,15 @@
+%h1="Login or register"
+
+.bubble.login-form
+  -form_for "user", @user do |f|
+    -if @session and @session.errors
+      .errors.login-form=error_messages_for("session")
+    .field-pair
+      =f.label "name"
+      =f.text_field "name"
+    .field-pair
+      =f.label "password"
+      =f.password_field "password"
+    .field-pair
+      =f.submit "Create account"
+      =f.submit "Login"

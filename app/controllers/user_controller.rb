@@ -5,8 +5,16 @@ class UserController < ApplicationController
     if request.get?
       @user = User.new
     elsif request.post?
-      @session = UserSession.create params[:user]
-      redirect_to :action=>"account" if @session.valid?
+      @user = User.new params[:user]
+
+      if params[:commit].downcase=="login"
+        @session = UserSession.create params[:user]
+        redirect_to :action=>"account" if @session.valid?
+      elsif @user.valid?
+        @user.save
+        @session = UserSession.create params[:user]
+        redirect_to :action=>"account" if @session.valid?
+      end
     end
   end
 

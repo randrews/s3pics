@@ -1,6 +1,4 @@
 // To load this file, use the following bookmarklet:
-//
-//(function(){var s=document.createElement("script");s.src="http://localhost:3000/javascripts/bookmarklet.js";document.body.appendChild(s)})();
 
 function loadPrototype(){
     if(window.Prototype && window.Prototype.Version >= "1.6.0"){return;}
@@ -10,3 +8,5 @@ function loadPrototype(){
 }
 
 loadPrototype();
+
+alert("Landing pad hit");

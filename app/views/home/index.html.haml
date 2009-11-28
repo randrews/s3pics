@@ -1,0 +1,10 @@
+-if @current_user
+  .welcome="Welcome, #{@current_user.name}!"
+  .logout=link_to "Logout", logout_url
+
+-else
+  .login=link_to "Login/register", login_url
+
+.bookmarklet-link
+  Drag this link to your bookmarks bar:
+  =link_to "Share", bookmarklet_code

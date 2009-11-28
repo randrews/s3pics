@@ -1,3 +1,16 @@
+=centered(!width)
+  left: 50%
+  margin-left = !width / -2
+
+=vertically-centered(!height)
+  top: 50%
+  margin-top = !height / -2
+
+=rounded(!radius = 10px)
+  -moz-border-radius = !radius
+  -webkit-border-radius = !radius
+  padding = !radius
+
 #randrews-lookingat
   .gray
     position: fixed
@@ -11,3 +24,13 @@
     -moz-opacity: 0.5
     -khtml-opacity: 0.5
     opacity: 0.5
+
+  .dialog
+    position: fixed
+    background-color: white
+    z-index: 100001
+    width: 800px
+    height: 500px
+    +centered(800px)
+    +vertically-centered(500px)
+    +rounded

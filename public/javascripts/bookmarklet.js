@@ -34,9 +34,10 @@ function loadStylesheets(){
 function createDialog(){
   if(window["lookingat-loaded"]){return;}
 
-  var holder = new Element("div",{id:"randrews-lookingat"}).update("<div class='gray'/><div class='dialog'/>");
+  var holder = new Element("div",{id:"randrews-lookingat"}).update("<div class='gray'></div><div class='dialog'></div>");
 
   document.body.appendChild(holder);
+  $$("#randrews-lookingat .dialog")[0].update("foo");
 }
 
 withPrototype(function(){

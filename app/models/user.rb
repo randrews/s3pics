@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
     c.require_password_confirmation false
     c.validate_password_field false
   end
+
+  has_many :images
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  s3_key: MyString
+  user_id: 1
+  original_url: MyString
+  private: false
+  comment: MyText
+
+two:
+  s3_key: MyString
+  user_id: 1
+  original_url: MyString
+  private: false
+  comment: MyText

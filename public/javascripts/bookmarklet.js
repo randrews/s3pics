@@ -34,46 +34,14 @@ function loadStylesheets(){
 function createDialog(){
   if(window["lookingat-loaded"]){return;}
 
-  var holder = document.createElement("div");
-  var gray = document.createElement("div");
-  var dialog = document.createElement("div");
-
-  holder.writeAttribute("id", "randrews-lookingat");
-  gray.addClassName("gray");
-  dialog.addClassName("dialog");
-
-  holder.appendChild(gray);
-  holder.appendChild(dialog);
-  document.body.appendChild(holder);
-}
-
-function shortCreate(){
-  if(window["lookingat-loaded"]){return;}
-
   var holder = new Element("div",{id:"randrews-lookingat"}).update("<div class='gray'/><div class='dialog'/>");
 
   document.body.appendChild(holder);
 }
 
-function domCreate(){
-  if(window["lookingat-loaded"]){return;}
-
-  var holder = document.createElement("div");
-  var gray = document.createElement("div");
-  var dialog = document.createElement("div");
-
-  holder.setAttribute("id", "randrews-lookingat");
-  gray.setAttribute("class","gray");
-  dialog.setAttribute("class","dialog");
-
-  holder.appendChild(gray);
-  holder.appendChild(dialog);
-  document.body.appendChild(holder);
-}
-
 withPrototype(function(){
   loadStylesheets();
-  shortCreate();
+  createDialog();
 
   window["lookingat-loaded"] = true;
 });

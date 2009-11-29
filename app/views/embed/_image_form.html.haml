@@ -1,0 +1,11 @@
+=label_tag "image_url", "URL to share:"
+=text_field_tag "image[url]"
+
+=label_tag "image_private", "Private?"
+.input-wrapper
+  =check_box_tag "image[private]"
+
+=label_tag "image_comment", "Comment:"
+=text_area_tag "image[comment]"
+
+=button_to_function "Share!", "", :class=>"submit-button"

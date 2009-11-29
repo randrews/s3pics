@@ -7,6 +7,7 @@
 
 @import login.sass
 @import image_selector.sass
+@import image_form.sass
 
 #randrews-lookingat
   font: 12px Verdana
@@ -21,6 +22,13 @@
       color: black
       text-decoration: underline
       font-weight: normal
+
+  input[type=text], input[type=password], input[type=button]
+    height: 20px
+    border: 1px solid black
+
+  label
+    line-height: 20px
 
   .gray
     +fill(fixed)
@@ -54,3 +62,8 @@
         position: absolute
         right = 0
         top = 0
+
+    .body
+      width = !dialog_width
+      position: relative
+      top: 40px

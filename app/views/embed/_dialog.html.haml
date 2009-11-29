@@ -1,7 +1,10 @@
-%script="loadJs('login');"
+%script="loadJs('dialog');"
 
 .header#randrews-lookingat-header
   -if @current_user
     =render :partial=>"logged_in_header"
   -else
     =render :partial=>"not_logged_in_header"
+
+.image-form
+  .image-selector

@@ -5,7 +5,7 @@ module ApplicationHelper
      javascript:(
        function(){
          var s=document.createElement("script");
-         s.src="http://#{request.host_with_port}#{javascript_path('bookmarklet')}";
+         s.src="http://#{request.host_with_port}#{landing_path}";
          document.body.appendChild(s);
        })();
     JS

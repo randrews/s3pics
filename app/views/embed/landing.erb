@@ -1,9 +1,7 @@
-// To load this file, use the following bookmarklet:
-
 function withPrototype(after){
   if(window.Prototype && window.Prototype.Version >= "1.6.0"){after();return;}
   var node = document.createElement("script");
-  node.src = "http://localhost:3000/javascripts/prototype.js";
+  node.src = "<%=@domain %>/javascripts/prototype.js";
   document.body.appendChild(node);
 
   var waitForProto = function(){
@@ -22,12 +20,12 @@ function loadStylesheets(){
 
   var node = document.createElement("link");
   node.rel="stylesheet";
-  node.href = "http://localhost:3000/stylesheets/reset.css";
+  node.href = "<%=@domain %>/stylesheets/reset.css";
   document.body.appendChild(node);
 
   var node2 = document.createElement("link");
   node2.rel="stylesheet";
-  node2.href = "http://localhost:3000/stylesheets/bookmarklet.css";
+  node2.href = "<%=@domain %>/stylesheets/bookmarklet.css";
   document.body.appendChild(node2);
 }
 
@@ -46,13 +44,13 @@ function fillDialog(){
 
 function crossReplace(update, action, params){
     var node = document.createElement("script");
-    node.src = "http://localhost:3000/embed/"+action+"/"+update+"?"+$H(params).toQueryString();
+    node.src = "<%=@domain %>/embed/"+action+"/"+update+"?"+$H(params).toQueryString();
     document.body.appendChild(node);
 }
 
 function loadJs(name){
     var node = document.createElement("script");
-    node.src = "http://localhost:3000/javascripts/"+name+".js";
+    node.src = "<%=@domain %>/javascripts/"+name+".js";
     document.body.appendChild(node);
 }
 

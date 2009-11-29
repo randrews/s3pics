@@ -1,4 +1,6 @@
 class EmbedController < ApplicationController
+  layout nil
+
 =begin
 This is a little tricky.
 
@@ -33,6 +35,10 @@ pages (the share dialog).
         page.replace_html params[:update], content
       end
     end
+  end
+
+  def landing
+    @domain = "http://"+request.host_with_port
   end
 
   private

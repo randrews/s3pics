@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.account "/account", :controller=>:user, :action=>:account
 
   map.embed "/embed/:method/:update", :controller=>:embed, :action=>:index
+  map.landing "/landing", :controller=>:embed, :action=>:landing
 
   map.root :controller=>:home, :action=>:index
 

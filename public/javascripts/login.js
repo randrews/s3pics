@@ -14,5 +14,9 @@ randrews_lookingat = {
 
   logout: function(){
     crossReplace("randrews-lookingat-header","logout");
+  },
+
+  closeDialog: function(){
+    $("randrews-lookingat").hide();
   }
 };

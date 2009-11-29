@@ -25,7 +25,7 @@ function loadStylesheets(){
 
   var node2 = document.createElement("link");
   node2.rel="stylesheet";
-  node2.href = "<%=@domain %>/stylesheets/bookmarklet.css";
+  node2.href = "<%=@domain %>/stylesheets/dialog.css";
   document.body.appendChild(node2);
 }
 
@@ -55,9 +55,12 @@ function loadJs(name){
 }
 
 withPrototype(function(){
-  loadStylesheets();
-  createDialog();
-  fillDialog();
-
-  window["lookingat-loaded"] = true;
-});
+	if($("randrews-lookingat")){
+	    $("randrews-lookingat").show();
+	} else {
+	    loadStylesheets();
+	    createDialog();
+	    fillDialog();
+	    window["lookingat-loaded"] = true;
+	}
+    });

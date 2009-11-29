@@ -22,25 +22,15 @@ randrews_lookingat = {
 
   populateImages: function(){
     var sizes = randrews_lookingat.getAllImages();
-    var cmp = function(a,b){ return sizes.get(b) - sizes.get(a); };
+    var cmp = function(a,b){ return sizes.get(b).size - sizes.get(a).size; };
     var selector = $$("#randrews-lookingat .image-selector")[0];
     sizes.keys().sort(cmp).each(function(src){
 				  var html =
 				    "<div class='selectable-image'><img src=\""+
-				    src+"\"/><div class='image-name'>"+
-				    randrews_lookingat.prettySrcName(src)+"</div>";
+				    src+"\"/><div class='image-name'> "+sizes.get(src).size_str+"</div>";
 				  var row = new Element("div",{"class":"image-row"}).update(html);
 				  selector.appendChild(row);
 				});
-  },
-
-  prettySrcName: function(src){
-    var m = src.match(/.*\/(.*?)$/);
-    if(m){
-      return m[1];
-    } else {
-      return src;
-    }
   },
 
   getAllImages: function(){
@@ -48,7 +38,7 @@ randrews_lookingat = {
     $$("img").each(function(img){
 		     var src = img.getAttribute("src");
 		     if(!src){ return; }
-		     sizes.set(src, img.width * img.height);
+		     sizes.set(src, {size: img.width * img.height, size_str:""+img.width+"x"+img.height});
     });
 
     return sizes;

@@ -17,15 +17,42 @@ pages (the share dialog).
 =end
 
   def index
-    content = self.send params[:method]
+    error = nil
+    content = nil
+
+    begin
+      content = self.send params[:method]
+    rescue
+      error = $!.to_s
+    end
+
     render :update do |page|
-      page.replace_html params[:update], content
+      if error
+        page.alert error
+      else
+        page.replace_html params[:update], content
+      end
     end
   end
 
   private
 
   def dialog
-    render_to_string :partial=>'dialog'
+    render_to_string :partial=>"dialog"
+  end
+
+  def login
+    session = UserSession.create(params[:user])
+    if session.valid?
+      @current_user = session.user # User.find_by_name params[:user][:name]
+      render_to_string :partial=>"logged_in_header"
+    else
+      raise "Invalid login"
+    end
+  end
+
+  def logout
+    UserSession.find.destroy rescue nil
+    render_to_string :partial=>"not_logged_in_header"
   end
 end

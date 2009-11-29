@@ -1,1 +1,12 @@
-.login=link_to_function "Login/register", ""
+.login
+  =link_to_function "Login", "randrews_lookingat.showLoginForm()"
+  or
+  =link_to "Register", login_url(), :target=>"_blank"
+  (in new window)
+
+.login-form{:style=>"display:none;"}
+  =label_tag "user_name", "Name"
+  =text_field_tag "user[name]"
+  =label_tag "user_password", "Password"
+  =password_field_tag "user[password]"
+  =button_to_function "Login", "randrews_lookingat.login()"

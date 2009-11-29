@@ -50,6 +50,12 @@ function crossReplace(update, action, params){
     document.body.appendChild(node);
 }
 
+function loadJs(name){
+    var node = document.createElement("script");
+    node.src = "http://localhost:3000/javascripts/"+name+".js";
+    document.body.appendChild(node);
+}
+
 withPrototype(function(){
   loadStylesheets();
   createDialog();

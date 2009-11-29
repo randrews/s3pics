@@ -12,4 +12,8 @@ module ApplicationHelper
 
     @@bookmarklet_code ||= js.squish
   end
+
+  def embed_javascript_include_tag name
+    javascript_include_tag "http://#{request.host_with_port}#{javascript_path(name)}"
+  end
 end

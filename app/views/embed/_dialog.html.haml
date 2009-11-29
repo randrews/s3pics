@@ -1,0 +1,5 @@
+.header
+  -if @current_user
+    =render :partial=>"logged_in_header"
+  -else
+    =render :partial=>"not_logged_in_header"

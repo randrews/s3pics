@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.login "/login", :controller=>:user, :action=>:login
   map.logout "/logout", :controller=>:user, :action=>:logout
-  map.logout "/account", :controller=>:user, :action=>:account
+  map.account "/account", :controller=>:user, :action=>:account
+
+  map.embed "/embed/:method/:update", :controller=>:embed, :action=>:index
 
   map.root :controller=>:home, :action=>:index
 

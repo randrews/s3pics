@@ -34,15 +34,26 @@ function loadStylesheets(){
 function createDialog(){
   if(window["lookingat-loaded"]){return;}
 
-  var holder = new Element("div",{id:"randrews-lookingat"}).update("<div class='gray'></div><div class='dialog'></div>");
+  var holder = new Element("div",{id:"randrews-lookingat"}).update("<div class='gray'></div><div class='dialog'><div class='relative' id='randrews-lookingat-dialog'><div class='loading'/></div></div>");
 
   document.body.appendChild(holder);
-  $$("#randrews-lookingat .dialog")[0].update("foo");
+}
+
+function fillDialog(){
+  crossReplace("randrews-lookingat-dialog",
+	       "dialog");
+}
+
+function crossReplace(update, action, params){
+    var node = document.createElement("script");
+    node.src = "http://localhost:3000/embed/"+action+"/"+update+"?"+$H(params).toQueryString();
+    document.body.appendChild(node);
 }
 
 withPrototype(function(){
   loadStylesheets();
   createDialog();
+  fillDialog();
 
   window["lookingat-loaded"] = true;
 });

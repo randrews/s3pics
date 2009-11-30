@@ -33,8 +33,10 @@ randrews_lookingat = {
 				});
     var first = $$("#randrews-lookingat .image-selector .selectable-overlay")[0];
     if(first){
-      first.addClassName("selected");
+      randrews_lookingat.selectImage(first);
     }
+
+    $$("#randrews-lookingat #image_comment")[0].value = document.title;
   },
 
   getAllImages: function(){
@@ -54,6 +56,13 @@ randrews_lookingat = {
       oldSelected.removeClassName("selected");
     }
     overlay.addClassName("selected");
+    $$("#randrews-lookingat #image_url")[0].value = randrews_lookingat.qualifyURL(overlay.getAttribute("for"));
+  },
+
+  qualifyURL: function(url) {
+    var a = document.createElement('a');
+    a.href = url;
+    return a.href;
   }
 };
 

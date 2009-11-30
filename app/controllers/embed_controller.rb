@@ -61,4 +61,8 @@ pages (the share dialog).
     UserSession.find.destroy rescue nil
     render_to_string :partial=>"not_logged_in_header"
   end
+
+  def submit
+    params.inspect
+  end
 end

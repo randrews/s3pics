@@ -63,6 +63,16 @@ randrews_lookingat = {
     var a = document.createElement('a');
     a.href = url;
     return a.href;
+  },
+
+  submitImage: function(){
+    var params={
+      "private": $F($$("#randrews-lookingat #image_private")[0]),
+      url: $F($$("#randrews-lookingat #image_url")[0]),
+      comment: $F($$("#randrews-lookingat #image_comment")[0])
+    };
+
+    crossReplace("randrews_submit_status","submit",params);
   }
 };
 

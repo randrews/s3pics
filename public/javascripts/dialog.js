@@ -72,6 +72,7 @@ randrews_lookingat = {
       comment: $F($$("#randrews-lookingat #image_comment")[0])
     };
 
+    $("randrews_submit_status").update("<div class='loading'/>");
     crossReplace("randrews_submit_status","submit",params);
   }
 };

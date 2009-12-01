@@ -1,0 +1,14 @@
+development:
+  bucket_name: lookingat_development
+  access_key_id: AKIAIBUKHD25ORHHTTZA
+  secret_access_key: Ou+iw2qtGh3snVEe2FToE4jEitwDqQAB1iBtHeza
+
+test:
+  bucket_name: myapp_test
+  access_key_id: <your key>
+  secret_access_key: <your key>
+
+production:
+  bucket_name: lookingat
+  access_key_id: AKIAIBUKHD25ORHHTTZA
+  secret_access_key: Ou+iw2qtGh3snVEe2FToE4jEitwDqQAB1iBtHeza

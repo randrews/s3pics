@@ -63,6 +63,13 @@ pages (the share dialog).
   end
 
   def submit
-    params.inspect
+    image = Image.new(params)
+    if image.valid?
+      image.save
+      image.upload_to_s3
+      "foo"
+    else
+      "error"
+    end
   end
 end

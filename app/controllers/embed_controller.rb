@@ -43,6 +43,8 @@ pages (the share dialog).
 
   private
 
+  include ActionView::Helpers::ActiveRecordHelper
+
   def dialog
     render_to_string :partial=>"dialog"
   end
@@ -63,13 +65,15 @@ pages (the share dialog).
   end
 
   def submit
-    image = Image.new(params)
+    image = Image.new(params[:image])
     if image.valid?
       image.save
       image.upload_to_s3
-      "foo"
+      "Uploaded successfully"
     else
-      "error"
+      error_messages_for 'image', :object=>image
     end
+  rescue
+    $!.to_s
   end
 end

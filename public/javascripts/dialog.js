@@ -67,9 +67,9 @@ randrews_lookingat = {
 
   submitImage: function(){
     var params={
-      "private": $F($$("#randrews-lookingat #image_private")[0]),
-      url: $F($$("#randrews-lookingat #image_url")[0]),
-      comment: $F($$("#randrews-lookingat #image_comment")[0])
+      "image[private]": $F($$("#randrews-lookingat #image_private")[0]),
+      "image[original_url]": $F($$("#randrews-lookingat #image_url")[0]),
+      "image[comment]": $F($$("#randrews-lookingat #image_comment")[0])
     };
 
     $("randrews_submit_status").update("<div class='loading'/>");

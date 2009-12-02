@@ -1,3 +1,4 @@
 .welcome="Welcome, #{@current_user.name}!"
 .logout=link_to_function "Logout", "randrews_lookingat.logout();"
 .close-button=link_to_function "[close]", "randrews_lookingat.closeDialog()"
+%script="randrews_lookingat.inputs().each(function(i){i.enable();});"

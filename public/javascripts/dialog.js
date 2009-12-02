@@ -14,6 +14,11 @@ randrews_lookingat = {
 
   logout: function(){
     crossReplace("randrews-lookingat-header","logout");
+    randrews_lookingat.inputs().each(function(i){i.disable()});
+  },
+
+  inputs: function(){
+    return $$("#randrews-lookingat input, #randrews-lookingat textarea");
   },
 
   closeDialog: function(){

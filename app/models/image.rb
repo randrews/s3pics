@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   belongs_to :user
+  validates_presence_of :user_id
 
   named_scope :public, :conditions=>{:private=>false}
 
@@ -20,5 +21,9 @@ class Image < ActiveRecord::Base
     else
       ""
     end
+  end
+
+  def s3_url
+    "http://s3.amazonaws.com/#{S3_BUCKET}/#{s3_key}"
   end
 end

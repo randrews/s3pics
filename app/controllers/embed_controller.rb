@@ -65,7 +65,10 @@ pages (the share dialog).
   end
 
   def submit
-    image = Image.new(params[:image])
+    raise "Not logged in" if !@current_user
+
+    image = Image.new(params[:image].merge(:user=>@current_user))
+
     if image.valid?
       image.save
       image.upload_to_s3

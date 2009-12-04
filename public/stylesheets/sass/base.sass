@@ -1,0 +1,20 @@
+// This is all stuff for the User controller
+
+@import functions.sass
+@import colors.sass
+
+!bubble_width = 800px
+!bubble_height = 500px
+
+.bubble
+  position: absolute
+  width = !bubble_width
+  min-height = !bubble_height
+  +centered(!bubble_width)
+  +rounded(20px)
+  border = 2px solid !gray
+
+body
+  font-size: 14px
+  font-family: Verdana
+  color = !darkgray

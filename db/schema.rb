@@ -9,16 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091128171656) do
+ActiveRecord::Schema.define(:version => 20091214015634) do
 
   create_table "images", :force => true do |t|
     t.string   "s3_key"
     t.integer  "user_id"
     t.string   "original_url"
-    t.boolean  "private",      :default => false
+    t.boolean  "private"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "page_url"
+    t.boolean  "page_broken"
   end
 
   create_table "users", :force => true do |t|

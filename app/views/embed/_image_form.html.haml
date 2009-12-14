@@ -5,6 +5,10 @@
 .input-wrapper
   =check_box_tag "image[private]"
 
+=label_tag "image_page_broken", "Report a problem on this page?"
+.input-wrapper
+  =check_box_tag "image[page_broken]"
+
 =label_tag "image_comment", "Comment:"
 =text_area_tag "image[comment]"
 

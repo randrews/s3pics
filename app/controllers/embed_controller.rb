@@ -69,7 +69,7 @@ pages (the share dialog).
     # bookmarklet, so we'll save the login info and try to log in again
     if !@current_user
       session = UserSession.create(params[:user])
-      if session.valid
+      if session.valid?
         @current_user = session.user
       else
         raise "Not logged in"

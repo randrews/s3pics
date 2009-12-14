@@ -9,12 +9,24 @@ randrews_lookingat = {
       "user[name]": $F($$("#randrews-lookingat .header input#user_name")[0]),
       "user[password]": $F($$("#randrews-lookingat .header input#user_password")[0])
     };
+    randrews_lookingat.saveLogin(params);
     crossReplace("randrews-lookingat-header","login",params);
+  },
+
+  saveLogin: function(credentials){
+    randrews_lookingat.savedUsername = credentials["user[name]"];
+    randrews_lookingat.savedPassword = credentials["user[password]"];
+  },
+
+  addSavedLogin: function(params){
+    params["user[name]"] = randrews_lookingat.savedUsername;
+    params["user[password]"] = randrews_lookingat.savedPassword;
+    return params;
   },
 
   logout: function(){
     crossReplace("randrews-lookingat-header","logout");
-    randrews_lookingat.inputs().each(function(i){i.disable()});
+    randrews_lookingat.inputs().each(function(i){i.disable();});
   },
 
   inputs: function(){
@@ -76,6 +88,8 @@ randrews_lookingat = {
       "image[original_url]": $F($$("#randrews-lookingat #image_url")[0]),
       "image[comment]": $F($$("#randrews-lookingat #image_comment")[0])
     };
+
+    params = randrews_lookingat.addSavedLogin(params);
 
     $("randrews_submit_status").update("<div class='loading'/>");
     crossReplace("randrews_submit_status","submit",params);

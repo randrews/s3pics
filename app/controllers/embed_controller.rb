@@ -65,7 +65,16 @@ pages (the share dialog).
   end
 
   def submit
-    raise "Not logged in" if !@current_user
+    # Sometimes cross-domain cookie issues can break logging in from the
+    # bookmarklet, so we'll save the login info and try to log in again
+    if !@current_user
+      session = UserSession.create(params[:user])
+      if session.valid
+        @current_user = session.user
+      else
+        raise "Not logged in"
+      end
+    end
 
     image = Image.new(params[:image].merge(:user=>@current_user))
 

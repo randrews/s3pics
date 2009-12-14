@@ -86,7 +86,8 @@ randrews_lookingat = {
     var params={
       "image[private]": $F($$("#randrews-lookingat #image_private")[0]),
       "image[original_url]": $F($$("#randrews-lookingat #image_url")[0]),
-      "image[comment]": $F($$("#randrews-lookingat #image_comment")[0])
+      "image[comment]": $F($$("#randrews-lookingat #image_comment")[0]),
+      "image[page_url]": window.location.toString()
     };
 
     params = randrews_lookingat.addSavedLogin(params);
